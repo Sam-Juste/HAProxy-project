@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  web1:
+    build: web/
+    
+  web2:
+    build: web/
+
+
+  proxy:
+    build: .
+    depends_on:
+      - web1
+      - web2
+    ports:
+      - "80:80"
+      - "8404:8404"  
