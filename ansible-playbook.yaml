@@ -1,0 +1,14 @@
+# clone git and docker compose
+ - hosts: localhost #moet nog veranderen
+   tasks:
+   - name: Clone a github repository
+     git:
+       repo: https://github.com/Sam-Juste/HAProxy-project
+       dest: /home/jowan/test2/ #verander naar juiste pad
+       clone: yes
+       update: yes
+   - name: Docker compose
+     docker_compose:
+       project_src: /home/jowan/test2 #verander naar juiste pad
+       files:
+       - docker-compose.yml
